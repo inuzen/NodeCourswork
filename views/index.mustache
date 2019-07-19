@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>New wishlist</title>
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/modal.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.fittext.js" charset="utf-8"></script>
+</head>
+
+<body>
+  <div class="main-container row">
+
+    <aside class="left-field">
+      <div class="left-field-background column">
+        <div class="left-field-upper-block">
+
+        </div>
+        <div class="left-field-bottom-block row">
+          <div class="left-field-bottom-left column">
+
+            <span class="menu icon-wrapper row">
+              <img src="img/iconsicon_create_list.png" alt="">
+            </span>
+            <span class="menu icon-wrapper row about">
+              <img src="img/iconsicon_about_me.png" alt="">
+            </span>
+
+          </div>
+          <div class="left-field-bottom-right">
+            <p class="menu menu-item row">
+              <span>CREATE LIST</span>
+            </p>
+            <p class="menu menu-item row about">
+              <span>ABOUT ME</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <nav class="main-navigation">
+
+      </nav>
+    </aside>
+
+
+    <div class="main-content">
+      <div class="input-container rounded">
+        <div class="input-field">
+          <span class="input-container-text input-container-text-header">CREATE LIST</span>
+          <div class="input-field-item input-field-search">
+            <span id="searchbar" class="input-field-text" contenteditable="true">Start typing</span>
+          </div>
+          <span class='input-container-text'>or</span>
+          <div class="input-field-item iput-field-link">
+            <span id="link" class="input-field-text" contenteditable="true">Paste a link to market</span>
+          </div>
+
+        </div>
+        <div class="preview-container rounded">
+          <div class="preview-text">
+            <span class="preview-header">PREVIEW:</span>
+            <span class="preview-description"> Soundbar</span>
+            <span class="preview-description "> Soundbar</span>
+            <span class="preview-description "> Soundbar</span>
+          </div>
+          <div class="preview-image-wrapper">
+            <img class="preview-image" src="img/icons/item.png" alt="">
+          </div>
+            <p id="add_btn" class="add-btn">ADD</p>
+        </div>
+        <!-- <div class="copy-link-container">
+          <p>COPY YOUR LINK</p>
+          <p class="copy-link-btn card-copy-link">LINK</p>
+        </div> -->
+      </div>
+
+      <div id="tabs" class="list-container column">
+
+        <nav  class="tab-container row">
+          {{#catArray}}
+             <div class="tab row" data-tab="{{_id}}">
+
+                <p class="category-icon-wrapper">
+                  <img class="category-icon" src="img/icons{{icon_path}}" alt="">
+                </p>
+                 <span class="category-title">{{category}}</span>
+
+              <span class="item-number">{{amount}} items</span>
+            </div>
+            {{/catArray}}
+        </nav>
+        {{#itemArray}}
+        <main id ="{{cat_id}}" class="item-container row">{{#cards}}
+            <div class="card column rounded">
+              <div class="card-row row">
+                <img class="card-image" src="img/{{img_path}}" alt="">
+
+                <div class="card-text">
+                  <p class="card-title">{{title}}</p>
+                  <p class="card-additional-text">{{info}}</p>
+                </div>
+
+              </div>
+              <div class="card-row row">
+                <button class="card-copy-link"> <a href="{{item_link}}"><img src="img/iconsicon_link.png" alt=""></a></button>
+                <button class="btn-card-delete" data-id="{{_id}}">DELETE</button>
+              </div>
+            </div>
+          {{/cards}}
+        </main>{{/itemArray}}
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+
+  <div class="modal rounded">
+    <div class="modal-title-container">
+      <p class="modal-title-inner-text">PLEASE,</p>
+      <p class="modal-title-inner-text">FILL IN THE FORM</p>
+    </div>
+    <fieldset class="modal-fieldset">
+      <span class="modal-input-text-container"><input class="modal-input modal-input-text" type="text" name="user_name" value="" placeholder="your name"></span>
+      <span class="modal-input-text-container"><input class="modal-input modal-input-text" type="text" name="user_hobby" value="" placeholder="your hobby"></span>
+      <span class="modal-input-text-container"><input class="modal-input modal-input-text" type="text" name="user_age" value="" placeholder="your age"></span>
+      <button class="btn btn-modal" type="send" name="button">SEND</button>
+    </fieldset>
+  </div>
+</body>
+<script type="text/javascript" src="js/search.js"></script>
+<script type="text/javascript" src="js/list.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+
+</html>
