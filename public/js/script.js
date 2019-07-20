@@ -7,7 +7,7 @@ $("#link").on('focus', (e) => {
       $("#link").text("");
 });
 $("#link").on('blur', (e) => {
-  console.log("here");
+
       if(!$("#link").text())
         $("#link").text("Paste a link to market");
 });
