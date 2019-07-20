@@ -6,6 +6,29 @@ $(".about").on('click', (e) => {
 $("#link").on('focus', (e) => {
       $("#link").text("");
 });
+$("#link").on('blur', (e) => {
+  console.log("here");
+      if(!$("#link").text())
+        $("#link").text("Paste a link to market");
+});
+
+
+$(".category-title").mouseover(function() {
+    $(this).removeClass("ellipsis");
+    var maxscroll = $(this).width();
+    var speed = maxscroll * 15;
+    $(this).animate({
+        scrollLeft: maxscroll
+    }, speed, "linear");
+});
+
+$(".category-title").mouseout(function() {
+    $(this).stop();
+    $(this).addClass("ellipsis");
+    $(this).animate({
+        scrollLeft: 0
+    }, 'slow');
+});
 
 $( function() {
   $('.tab').click(function(){
